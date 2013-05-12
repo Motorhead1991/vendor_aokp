@@ -1,4 +1,5 @@
 PRODUCT_MAKEFILES := \
+	$(LOCAL_DIR)/apache.mk \
     $(LOCAL_DIR)/captivatemtd.mk \
     $(LOCAL_DIR)/crespo.mk \
     $(LOCAL_DIR)/crespo4g.mk \
