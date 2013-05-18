@@ -1,52 +1,12 @@
-[Android Open Kang Project](aokp.co)
-====================================
+Tweaked vendor files for building AOKP apache
+============================================
 
+1. repo sync AOKP JB (you can find instructions for this)
 
-Download the source
---------------
+2. cd to "vendor/aokp"
 
-Please read the [AOSP building instructions](http://source.android.com/source/index.html) before proceeding.
+3. git remote add apache https://github.com/Motorhead1991/vendor_aokp
 
-Initialize
+4. git fetch apache
 
-    repo init -u https://github.com/AOKP/platform_manifest.git -b jb-mr1
-
-Run the following to sync the source
-
-    repo sync
-
-***
-
-Download the kernel source
---------------------------
-
-Integrated kernel building is now **required** to compile AOKP for _all_ supported devices (even Nexus devices!)
-
-From the root of your source tree, run the following script to grab the kernel sources required
-
-    . ./platform_manifest/manual_add_kernel_manifest.sh
-
-Then run another `repo sync`
-
-
-**Advanced users:**
-Since the kernel trees are fairly large, you may want to sync only specific kernel trees for devices you build for, take a look at the file `.repo/local_manifests/kernel_manifest.xml`. You can edit this file to suite your needs.
-
-
-***
-
-Building
---------
-
-After the sync is finished, please read the [instructions from the Android site](http://s.android.com/source/building.html) on how to build.
-
-    . build/envsetup.sh
-    brunch
-
-
-You can also build (and see how long it took) for specific devices like this:
-
-    . build/envsetup.sh
-    time brunch aokp_mako-userdebug
-
-Remember to `make clobber` every now and then!
+5. git cherry-pick 25a2c5925a120283da76fd49a4dc62e4993f611a
