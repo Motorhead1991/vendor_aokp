@@ -1,8 +1,9 @@
-# Specify phone tech before including full_phone
+
+# Inherit GSM common stuff.
 $(call inherit-product, vendor/aokp/configs/gsm.mk)
 
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/aokp/configs/common_phone.mk)
+# Inherit common product files.
+$(call inherit-product, vendor/aokp/configs/common.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/samsung/apache/full_apache.mk)
@@ -20,3 +21,8 @@ PRODUCT_MODEL := SGH-I847
 PRODUCT_BUILD_PROP_OVERRIDES += USER=android-build
 PRODUCT_BUILD_PROP_OVERRIDES += KBUILD_BUILD_USER=android-build
 PRODUCT_BUILD_PROP_OVERRIDES += KBUILD_BUILD_HOST=buildbot
+
+
+# boot animation
+PRODUCT_COPY_FILES += \
+    vendor/aokp/prebuilt/bootanimation/bootanimation_720_1280.zip:system/media/bootanimation-alt.zip
